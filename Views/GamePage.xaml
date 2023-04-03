@@ -4,5 +4,40 @@
 			 xmlns:vm="clr-namespace:MauiTicTacToeHandin.ViewModels"
 			 x:Class="MauiTicTacToeHandin.Views.GamePage"
 			 x:DataType="vm:GameViewModel">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+            
+        <!-- Chat -->
+        <Editor
+            Grid.Row="0"
+            Text="{Binding Chat}"
+            IsEnabled="False"
+            TextColor="Black"
+            Background="Red"
+            Margin="2"/>
 
+        <!-- Input -->
+        <Editor
+            Grid.Row="1"
+            Text="{Binding Message}"
+            Placeholder="Tic Tac Toe Message"
+            TextColor="Black"
+            Background="Yellow"
+            Margin="2"/>
+
+        <!-- Send Message -->
+        <Button
+            Grid.Row="2"
+            Command="{Binding SendMessageCommand}"
+            Text="Send Message"
+            HorizontalOptions="End"
+            MinimumWidthRequest="200"
+            TextColor="Black"
+            Background="Green"
+            Margin="10, 2"/>
+    </Grid>
 </ContentPage>
