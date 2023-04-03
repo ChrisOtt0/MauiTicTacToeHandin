@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+	x:Class="MauiTicTacToeHandin.AppShell"
+	xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:views="clr-namespace:MauiTicTacToeHandin.Views"
+	xmlns:local="clr-namespace:MauiTicTacToeHandin">
+
+	<ShellContent
+		Shell.NavBarIsVisible="true"
+		Title="Name"
+		Icon="iconblank.png"
+		ContentTemplate="{DataTemplate views:NamePage}"
+		Route="NamePage" />
+	<ShellContent
+		Shell.NavBarIsVisible="true"
+		Title="Game"
+		Icon="iconblank.png"
+		ContentTemplate="{DataTemplate views:GamePage}"
+		Route="GamePage" />
+	<ShellContent
+		Shell.NavBarIsVisible="true"
+		Title="Highscore"
+		Icon="iconblank.png"
+		ContentTemplate="{DataTemplate views:HighscorePage}"
+		Route="HighscorePage" />
+</Shell>
