@@ -6,38 +6,36 @@
 			 x:DataType="vm:GameViewModel">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="3*"/>
-            <RowDefinition Height="2*"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="8*"/>
         </Grid.RowDefinitions>
+        
+        <!-- Set name and groupname + buttons -->
+        <HorizontalStackLayout
+            Grid.Row="0">
+            <!-- Name -->
+            <Entry
+                Text="{Binding Name}"/>
             
-        <!-- Chat -->
-        <Editor
-            Grid.Row="0"
-            Text="{Binding Chat}"
-            IsEnabled="False"
-            TextColor="Black"
-            Background="Red"
-            Margin="2"/>
-
-        <!-- Input -->
-        <Editor
+            <!-- GroupName -->
+            <Entry
+                Text="{Binding GroupName}"/>
+            
+            <!-- Create Game -->
+            <Button
+                Text="Create Game"
+                Command="{Binding CreateGameCommand}"/>
+            
+            <!-- Join Game -->
+            <Button
+                Text="Join Game"
+                Command="{Binding JoinGameCommand}"/>
+        </HorizontalStackLayout>
+        
+        <!-- Feedback Label -->
+        <Label
             Grid.Row="1"
-            Text="{Binding Message}"
-            Placeholder="Tic Tac Toe Message"
-            TextColor="Black"
-            Background="Yellow"
-            Margin="2"/>
-
-        <!-- Send Message -->
-        <Button
-            Grid.Row="2"
-            Command="{Binding SendMessageCommand}"
-            Text="Send Message"
-            HorizontalOptions="End"
-            MinimumWidthRequest="200"
-            TextColor="Black"
-            Background="Green"
-            Margin="10, 2"/>
+            Text="{Binding Result}"/>
     </Grid>
 </ContentPage>

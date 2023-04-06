@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.SignalR.Client;
+using ServerTicTacToeHandin.Models;
 
 namespace MauiTicTacToeHandin.Views;
 
@@ -13,7 +14,9 @@ public partial class GamePage : ContentPage
             .WithUrl("http://192.168.1.244:5000/game")
             .Build();
 
-        viewModel._hub.On<string>("MessageReceived", viewModel.AppendChat);
+        //viewModel._hub.On<string>("MessageReceived", viewModel.AppendChat);
+        viewModel._hub.On<string>("UpdateGame", viewModel.UpdateGame);
+        viewModel._hub.On<string>("PlayerLeft", viewModel.PlayerLeft);
 
         Task.Run(() =>
         {
