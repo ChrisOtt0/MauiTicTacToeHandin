@@ -20,18 +20,20 @@ public static class MauiProgram
 			});
 
 		builder.Services.AddSingleton<GameService>();
+		builder.Services.AddSingleton<HighscoreDatabase>();
+        builder.Services.AddSingleton<NameDatabase>();
 
-		builder.Services.AddSingleton<NameViewModel>();
+        builder.Services.AddTransient<NameViewModel>();
 
-		builder.Services.AddSingleton<NamePage>();
+		builder.Services.AddTransient<NamePage>();
 
 		builder.Services.AddSingleton<GameViewModel>();
 
-		builder.Services.AddSingleton<GamePage>();
+		builder.Services.AddTransient<GamePage>();
 
 		builder.Services.AddSingleton<HighscoreViewModel>();
 
-		builder.Services.AddSingleton<HighscorePage>();
+		builder.Services.AddTransient<HighscorePage>();
 
 		return builder.Build();
 	}

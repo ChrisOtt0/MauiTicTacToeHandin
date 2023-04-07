@@ -4,5 +4,15 @@
 			 xmlns:vm="clr-namespace:MauiTicTacToeHandin.ViewModels"
 			 x:Class="MauiTicTacToeHandin.Views.NamePage"
 			 x:DataType="vm:NameViewModel">
-
+    <VerticalStackLayout
+        HorizontalOptions="Center"
+        VerticalOptions="Center">
+        <Entry
+            Text="{Binding Name}"/>
+        <Button
+            Text="Update Name"
+            Command="{Binding SaveNameSaveCommand}"/>
+        <Label
+            Text="{Binding Feedback}"/>
+    </VerticalStackLayout>
 </ContentPage>

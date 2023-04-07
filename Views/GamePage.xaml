@@ -7,35 +7,154 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
             <RowDefinition Height="8*"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         
         <!-- Set name and groupname + buttons -->
-        <HorizontalStackLayout
+        <Grid
+            Margin="2, 0"
             Grid.Row="0">
-            <!-- Name -->
-            <Entry
-                Text="{Binding Name}"/>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
             
             <!-- GroupName -->
             <Entry
+                Placeholder="Enter Group Name.."
+                Grid.Column="0"
                 Text="{Binding GroupName}"/>
             
             <!-- Create Game -->
             <Button
+                Grid.Column="1"
                 Text="Create Game"
                 Command="{Binding CreateGameCommand}"/>
             
             <!-- Join Game -->
             <Button
+                Grid.Column="2"
                 Text="Join Game"
                 Command="{Binding JoinGameCommand}"/>
-        </HorizontalStackLayout>
+        </Grid>
         
-        <!-- Feedback Label -->
-        <Label
-            Grid.Row="1"
-            Text="{Binding Result}"/>
+        <!-- Game Board -->
+        <Grid
+            Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            
+            <!-- buttons -->
+            <Button
+                Margin="2"
+                Grid.Row="0"
+                Grid.Column="0"
+                Command="{Binding BtnPressCommand}"
+                Text="{Binding BtnTl}"
+                IsEnabled="{Binding CanPlayTl}"
+                CommandParameter="0"/>
+
+            <Button
+                Margin="2"
+                Grid.Row="0"
+                Grid.Column="1"
+                Command="{Binding BtnPressCommand}"
+                Text="{Binding BtnTm}"
+                IsEnabled="{Binding CanPlayTm}"
+                CommandParameter="1"/>
+
+            <Button
+                Margin="2"
+                Grid.Row="0"
+                Grid.Column="2"
+                Command="{Binding BtnPressCommand}"
+                Text="{Binding BtnTr}"
+                IsEnabled="{Binding CanPlayTr}"
+                CommandParameter="2"/>
+
+            <Button
+                Margin="2"
+                Grid.Row="1"
+                Grid.Column="0"
+                Command="{Binding BtnPressCommand}"
+                Text="{Binding BtnMl}"
+                IsEnabled="{Binding CanPlayMl}"
+                CommandParameter="3"/>
+
+            <Button
+                Margin="2"
+                Grid.Row="1"
+                Grid.Column="1"
+                Command="{Binding BtnPressCommand}"
+                Text="{Binding BtnMm}"
+                IsEnabled="{Binding CanPlayMm}"
+                CommandParameter="4"/>
+
+            <Button
+                Margin="2"
+                Grid.Row="1"
+                Grid.Column="2"
+                Command="{Binding BtnPressCommand}"
+                Text="{Binding BtnMr}"
+                IsEnabled="{Binding CanPlayMr}"
+                CommandParameter="5"/>
+
+            <Button
+                Margin="2"
+                Grid.Row="2"
+                Grid.Column="0"
+                Command="{Binding BtnPressCommand}"
+                Text="{Binding BtnBl}"
+                IsEnabled="{Binding CanPlayBl}"
+                CommandParameter="6"/>
+
+            <Button
+                Margin="2"
+                Grid.Row="2"
+                Grid.Column="1"
+                Command="{Binding BtnPressCommand}"
+                Text="{Binding BtnBm}"
+                IsEnabled="{Binding CanPlayBm}"
+                CommandParameter="7"/>
+
+            <Button
+                Margin="2"
+                Grid.Row="2"
+                Grid.Column="2"
+                Command="{Binding BtnPressCommand}"
+                Text="{Binding BtnBr}"
+                IsEnabled="{Binding CanPlayBr}"
+                CommandParameter="8"/>
+        </Grid>
+        
+        <!-- Feedback Label + Reset button -->
+        <Grid
+            Margin="2, 0"
+            Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="8*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            
+            <Label
+                Grid.Column="0"
+                Text="{Binding FeedbackLabel}"/>
+
+            <Button
+                Grid.Column="1"
+                Text="Reset"
+                Command="{Binding ResetGameCommand}"
+                IsEnabled="{Binding HasEnded}"/>
+        </Grid>
     </Grid>
 </ContentPage>
