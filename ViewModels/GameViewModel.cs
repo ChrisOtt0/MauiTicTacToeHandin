@@ -1,5 +1,6 @@
 ﻿using MauiTicTacToeHandin.Models;
 using MauiTicTacToeHandin.Services;
+using MauiTicTacToeHandin.Tools;
 using Microsoft.AspNetCore.SignalR.Client;
 using Newtonsoft.Json;
 using ServerTicTacToeHandin.Models;
@@ -178,6 +179,7 @@ public partial class GameViewModel : BaseViewModel
             }
 
             new Action( async () => await _highscoreDatabase.SaveHighscoreAsync(h))();
+            MessagingCenter.Send<GameViewModel, Highscore>(this, MessengerKeys.AddHighscore, h);
             FeedbackLabel = "Game over! Winner: " + winner;
             HasEnded = true;
             return;
